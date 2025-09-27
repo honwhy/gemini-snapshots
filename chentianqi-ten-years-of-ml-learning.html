@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈天奇：从初识机器学习到杰出学者——“他山之石”的炼成</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        header {
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        h1 {
+            color: #0056b3;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #0056b3;
+            border-left: 5px solid #0056b3;
+            padding-left: 10px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+        h3 {
+            color: #0056b3;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .bio, .summary {
+            background-color: #e9f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid #007bff;
+        }
+        .bio strong {
+            color: #004085;
+            font-size: 1.1em;
+        }
+        .meta {
+            text-align: right;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 20px;
+            border-top: 1px dashed #ccc;
+            padding-top: 10px;
+        }
+        .meta a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .meta a:hover {
+            text-decoration: underline;
+        }
+        .quote {
+            font-style: italic;
+            border-left: 4px solid #ccc;
+            padding-left: 15px;
+            color: #555;
+            margin: 20px 0;
+        }
+        .note {
+            background-color: #fffae6;
+            border: 1px solid #ffe0b2;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+        .tools a, .event a {
+            color: #dc3545;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .tools a:hover, .event a:hover {
+            text-decoration: underline;
+        }
+        .links {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        .links h3 {
+            border-left: none;
+            color: #6c757d;
+        }
+        .links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .links li {
+            margin-bottom: 10px;
+        }
+        .links a {
+            color: #28a745;
+            text-decoration: none;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        p strong {
+            color: #333; /* Make bold text stand out more within paragraphs */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>从初识机器学习到杰出学者——“他山之石”的炼成</h1>
+        <p class="summary note"><strong>编者按：</strong>从“同时锁死了要解决的问题和用来解决问题的方案”到“从问题出发，用尽所有可能的方法去最好地解决机器学习问题”，陈天奇博士分享了十年科研历程和独特的钻研风格。</p>
+    </header>
+
+    <div class="bio">
+        <strong>陈天奇</strong>，华盛顿大学计算机系博士生，研究方向为大规模机器学习。
+        <ul>
+            <li><strong>主要成就：</strong>
+                <ul>
+                    <li class="event">曾获 <a href="https://zhida.zhihu.com/search?content_id=104747004&content_type=Article&match_order=1&q=KDD+CUP&zhida_source=entity" target="_blank">KDD CUP 2012 Track 1</a> 第一名。</li>
+                    <li class="tools">开发了 <strong>SVDFeature</strong>, <a href="https://zhida.zhihu.com/search?content_id=104747004&content_type=Article&match_order=1&q=XGBoost&zhida_source=entity" target="_blank"><strong>XGBoost</strong></a>, <strong>cxxnet</strong> 等著名机器学习工具。</li>
+                    <li class="tools">是 Distributed (Deep) Machine Learning Common 的发起人之一。</li>
+                    <li class="tools">领导开发了模块化深度学习系统 <strong>NNVM</strong>（2016年）和深度学习编译器 <a href="https://zhida.zhihu.com/search?content_id=104747004&content_type=Article&match_order=1&q=TVM&zhida_source=entity" target="_blank"><strong>TVM</strong></a>（2017年），共同组成了深度学习到各种硬件的完整优化工具链。</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <p class="meta" style="text-align: left;"><em>运筹OR帷幄经授权转载</em></p>
+
+    <h2>起始：科研是什么？</h2>
+    <p>从大三进入交大APEX实验室开始接触机器学习。硕士期间，在没有导师指导和工具的情况下，凭借两块显卡和自己写的CUDA代码，死磕深度学习（<strong>非监督学习、限制玻尔兹曼机</strong>）两年半，尝试用卷积RBM提升ImageNet分类效率，但一无所获。</p>
+    <p class="quote">“当时的我同时锁死了要解决的问题和用来解决问题的方案，成功的可能性自然不高。”</p>
+    <p>焦虑下转而接触<strong>推荐系统和kddcup</strong>，搭建了泛用矩阵分解系统，并在 **KDDCup11** 获得不错成绩。但第一篇论文被KDD提前拒稿。直到 **KDDCup12** 获得第一个 track 冠军，才重拾信心。</p>
+
+    <h2>第零年：可以做什么？</h2>
+    <p>硕士临近毕业，通过与李航、杨强老师的交流和香港实习，找到了科研的第一个转折点——<strong>研究视野</strong>。</p>
+    <p>“经过几年的磨练，那时候的我或许已经知道如何去解决一个已有的问题，但是却缺乏其他一些必要的技能——如何选择一个新颖的研究问题，如何在结果不尽人意的时候转变方向寻找新的突破点，如何知道整个领域的问题之间的关系等等。”</p>
+    <p>在香港实习结束时，收获了第一篇正式的一作会议论文（<a href="https://zhida.zhihu.com/search?content_id=104747004&content_type=Article&match_order=1&q=ICML&zhida_source=entity" target="_blank">ICML</a>）。后选择UW开始博士生活。</p>
+
+    <h2>第一年：意外可以收获什么？</h2>
+    <p>博士第一年的主题是“意外”：</p>
+    <ul>
+        <li>借用之前组会知识完成了第一篇高效采样 **HMC** 的文章。</li>
+        <li>为了挑战“别的机器学习模型能否获得和深度学习一样效果”的假说，尝试 **Tree Boosting**，最终开源成为 **XGBoost**。</li>
+        <li>推导出了<strong>带权重的 quantile sketch 算法</strong>（后用于分布式XGBoost）。</li>
+    </ul>
+
+    <h2>第二年和第三年：选择做什么？</h2>
+    <p>导师 Carlos 要求严格，鼓励做<strong>“只做best paper水平的研究”</strong>，这促使他思考<strong>“值得自己深入付出，做扎实有影响力的工作”</strong>。</p>
+    <ul>
+        <li><strong>XGBoost 论文撰写：</strong> 在 Carlos 的建议下，论文强调让读者学到东西，每个章节插入实验验证观点，并改进做图习惯。</li>
+        <li><strong>深度学习系统合作：</strong> 与小伙伴合作发起 <a href="https://zhida.zhihu.com/search?content_id=104747004&content_type=Article&match_order=1&q=MXNet&zhida_source=entity" target="_blank"><strong>MXNet</strong></a> 项目，感受到了合作的力量。</li>
+        <li><strong>Google Brain 实习：</strong> 跟随 Ian Goodfellow 实习，选择了<strong>风险最高、回报也最高的“知识迁移”</strong>课题，最终获得正面的实验结果并发表在 ICLR。</li>
+        <li><strong>内存优化算法：</strong> 开发了低于线性复杂度的内存优化算法，但导师认为不够有意思，最终仅挂在了 Arxiv，领悟到<strong>“论文并非越多越好”</strong>。</li>
+    </ul>
+    <p class="quote">“选择做什么眼光和做出好结果的能力一样重要，眼界决定了工作影响力的上界，能力决定了到底是否到达那个上界。”</p>
+
+    <h2>第四年之后：坚持做什么？</h2>
+    <p>从对深度学习框架发展的迷茫，转而决定开发<strong>深度学习中间表示</strong>。</p>
+    <ul>
+        <li><strong>NNVM雏形：</strong> 完成了第一个版本，支持计算图内存优化。</li>
+        <li><strong>TVM项目：</strong> 发现系统瓶颈在底层算子实现，决定推动更具挑战性的项目——<strong>用自动编译生成的方式优化机器学习的底层代码</strong>。项目横跨系统、程序语言、体系结构和机器学习多领域，充满挑战。</li>
+        <li><strong>合作与突破：</strong> 项目从两人发展为一个社区，与体系结构、程序语言的合作者协同设计，不断重新发现经典问题的解决方法在AI新场景的应用。两年后，TVM第一篇论文发表。</li>
+    </ul>
+    <p>他的研究风格是：<strong>“从问题出发，用尽所有可能的方法去最好地解决机器学习问题。”</strong></p>
+
+    <h2>总结</h2>
+    <p>科研道路充满随机的涨落，但<strong>“付出足够多的时间和耐心，随机过程总会收敛到和付出相对的稳态”</strong>。博士经历是一场自我投资，突破自我，而<strong>合作与传承</strong>是取得成果不可或缺的一部分。</p>
+
+    <div class="meta">
+        <p>作者 | 知乎：陈天奇<br>
+        <a href="https://www.zhihu.com/people/crowowrk/activities" target="_blank">https://www.zhihu.com/people/crowowrk/activities</a><br>
+        版权声明：本文版权归“陈天奇”，转载请自行联系</p>
+    </div>
+
+    <hr>
+
+    <div class="links">
+        <h3>相关推荐</h3>
+        <ul>
+            <li><a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s%3F__biz%3DMzg2MTA0NzA0Mw%3D%3D%26mid%3D2247489519%26idx%3D1%26sn%3D9b83126710d260cb799f365ba7a3882d%26scene%3D21%23wechat_redirect" target="_blank">经验分享 | 港科大助理教授教你如何寻找科研Idea</a></li>
+            <li><a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s%3F__biz%3DMzg2MTA0NzA0Mw%3D%3D%26mid%3D2247487428%26idx%3D1%26sn%3D9bf2b8d8ab7c4032c5b5e8e7324e704c%26scene%3D21%23wechat_redirect" target="_blank">人物 | 22岁天才攻克百年难题，“锦鲤少年”谱写中国奇迹！</a></li>
+            <li><a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s%3F__biz%3DMzg2MTA0NzA0Mw%3D%3D%26mid%3D2247489134%26idx%3D1%26sn%3D27e5fc3999e7a7ccab4fb7a9de5b0672%26scene%3D21%23wechat_redirect" target="_blank">人物 | 何毓琦教授随笔（一）：在哈佛当终身教授的日子</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>
